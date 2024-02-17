@@ -5,10 +5,10 @@ from datasets import load_metric
 #from nltk.translate.gleu_score import sentence_gleu
 
 class T5Model(pl.LightningModule):
-    def __init__(self,model_name):
+    def __init__(self,cfg):
         super(T5Model, self).__init__()
         self.save_hyperparameters()
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(cfg.model_name)
         self.gleu = load_metric("gleu","cola")
     
     def forward(self, input_ids,attention_mask,labels=None) -> Any:

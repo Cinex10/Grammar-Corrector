@@ -5,14 +5,14 @@ from datasets import load_dataset
 
 
 class C4200DatasetModule(pl.LightningDataModule):
-    def __init__(self,batch_size,num_worker,model_name,dataset_name,validation_set_size,max_length,prefix):
-        self.batch_size = batch_size
-        self.num_worker = num_worker
-        self.dataset_name = dataset_name
-        self.tokenizer = T5Tokenizer.from_pretrained(model_name)
-        self.val_set_size = validation_set_size
-        self.max_length = max_length
-        self.prefix = prefix
+    def __init__(self,cfg):
+        self.batch_size = cfg.batch_size
+        self.num_worker = cfg.num_worker
+        self.dataset_name = cfg.dataset_name
+        self.tokenizer = T5Tokenizer.from_pretrained(cfg.model_name)
+        self.val_set_size = cfg.validation_set_size
+        self.max_length = cfg.max_length
+        self.prefix = cfg.prefix
         
         
     def prepare_data(self):
