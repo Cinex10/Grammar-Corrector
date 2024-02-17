@@ -1,0 +1,5 @@
+wandb
+outputs
+*.log
+models
+__pycache__
