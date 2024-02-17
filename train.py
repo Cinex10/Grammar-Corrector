@@ -13,8 +13,8 @@ from model import T5Model
 
 @hydra.main(config_path='config',config_name='config.yaml',version_base=None)
 def main(cfg):
-    data = C4200DatasetModule()
-    model = T5Model()
+    data = C4200DatasetModule(cfg)
+    model = T5Model(cfg)
 
     wandb.login()
     wandb_logger = WandbLogger(project='grammar_corrector',
