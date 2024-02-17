@@ -5,4 +5,3 @@ deterministic: true
 limit_train_batches: 0.25
 limit_val_batches: ${training.limit_train_batches}
 validation_set_size: 0.1
-prefix: "gec: correct the following sentence grammarly:" 
